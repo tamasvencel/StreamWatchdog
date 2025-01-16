@@ -45,6 +45,8 @@ def main():
     last_video_id = None
     first_run = True
 
+    print("StreamWatchdog is running. Monitoring for new uploads...")
+
     while True:
         try:
             # Check for the latest video
