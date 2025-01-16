@@ -1,6 +1,5 @@
 import os
 import time
-import requests
 from googleapiclient.discovery import build
 from plyer import notification
 from dotenv import load_dotenv
