@@ -42,8 +42,7 @@ def notify(title, message):
 
 
 def main():
-    last_video_id = None
-    first_run = True
+    latest_video_id, latest_video_title = get_latest_video()
 
     print("StreamWatchdog is running. Monitoring for new uploads...")
 
@@ -53,11 +52,10 @@ def main():
             video_id, video_title = get_latest_video()
 
             # If the video ID is new, notify the user
-            if not first_run and video_id != last_video_id:
+            if video_id != latest_video_id:
                 notify("Scheduled stream uploaded. Woohoo", f"{video_title} has been uploaded!")
-                last_video_id = video_id
-
-            first_run = False
+                print("Scheduled stream uploaded. Woohoo", f"{video_title} has been uploaded!")
+                latest_video_id = video_id
 
             # Wait for 5 minutes before checking again
             time.sleep(300)
